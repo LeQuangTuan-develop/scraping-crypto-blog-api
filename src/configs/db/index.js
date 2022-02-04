@@ -2,9 +2,10 @@ const mongoose = require("mongoose");
 
 // connect to mongoDB
 const connectDB = async () => {
+  console.log(process.env.DB_USER);
   try {
     await mongoose.connect(
-      "mongodb+srv://wolfhybrid:Lqt.1605%40@cryptoblog.hpzy8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cryptoblog.hpzy8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
