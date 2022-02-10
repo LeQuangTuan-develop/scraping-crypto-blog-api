@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
 const NewsSchema = new Schema(
   {
@@ -22,6 +22,6 @@ const NewsSchema = new Schema(
       virtuals: true,
     },
   }
-);
+)
 
-module.exports = mongoose.model("News", NewsSchema);
+module.exports = mongoose.model("News", NewsSchema)

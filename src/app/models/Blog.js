@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose")
+const Schema = mongoose.Schema
 
 const BlogSchema = new Schema(
   {
@@ -15,14 +15,15 @@ const BlogSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    info: {
-      author: {
-        type: String,
-      },
-      publish_date: {
-        type: Date,
-        default: new Date(),
-      },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      autopopulate: true,
+    },
+    slug: {
+      type: String,
+      slug: "title",
+      unique: true,
     },
   },
   {
@@ -31,6 +32,6 @@ const BlogSchema = new Schema(
       virtuals: true,
     },
   }
-);
+)
 
-module.exports = mongoose.model("Blog", BlogSchema);
+module.exports = mongoose.model("Blog", BlogSchema)
